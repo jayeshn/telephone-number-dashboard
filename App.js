@@ -1,5 +1,5 @@
 import React from 'react';
-import TelephoneNumberDashboard from './pages/telephone-number-dashboard/telephone-number-dashboard';
+import TelephoneNumberDashboard from './components/telephone-number-dashboard/telephone-number-dashboard';
 import './lib/3rdparty/bootstrap/css/bootstrap.min.css';
 import './lib/app/css/flexbox.css'
 import './App.css';
