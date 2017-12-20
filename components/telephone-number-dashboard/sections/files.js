@@ -22,13 +22,23 @@ class FilesSection extends React.Component {
         console.log('componentWillReceiveProps: FilesDetailSection');
     }
 
+    handleFileSelect(row) {
+      let files = this.props.files;
+      for(var i = 0;i < files.length; i++) {
+        if (files[i].name === row.name) {
+          this.setState({"selectedIndex":i});
+        }
+      }
+      console.log(this.state);
+    }
+
     render() {
         console.log('render: FilesDetailSection');
         return (
             <div className="row">
                 <div className="col-md-12">
                     <div className="well well-sm">
-                        <FileList files={this.props.files}/>
+                        <FileList onFileSelect={this.handleFileSelect.bind(this)} files={this.props.files}/>
                         <NumberList files={this.props.files} selIndex={this.state.selectedIndex}/>
                     </div>
                 </div>

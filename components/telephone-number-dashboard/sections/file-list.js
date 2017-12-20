@@ -18,7 +18,18 @@ class UploadFileSection extends React.Component {
         console.log('componentWillReceiveProps: UploadFileSection');
     }
 
+    onRowSelect(row, isSelected, e) {
+      this.props.onFileSelect(row);
+    }
+
     render() {
+      const selectRowProp = {
+        mode: 'checkbox',
+        clickToSelect: true,
+        hideSelectColumn: true,
+        onSelect: this.onRowSelect.bind(this)
+      };
+
         console.log('render: UploadFileSection');
         return (
             <div className="row">
@@ -32,6 +43,7 @@ class UploadFileSection extends React.Component {
                                 <div className="col-md-12">
                                     <BootstrapTable
                                       data={this.props.files}
+                                      selectRow={ selectRowProp }
                                       striped
                                       hover
                                       pagination

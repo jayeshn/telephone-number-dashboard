@@ -28,7 +28,7 @@ class NumbersSection extends React.Component {
                 this.num = this.num.concat(nextProps.files[i].numbers);
             }
         } else {
-            this.num = nextProps.files[this.props.selIndex];
+            this.num = [].concat(nextProps.files[nextProps.selIndex].numbers);
         }
 
         this.setState({"numbers":this.num});
