@@ -18,7 +18,18 @@ class OperationList extends React.Component {
         console.log('componentWillReceiveProps: OperationsSection');
     }
 
+    onRowSelect(row, isSelected, e) {
+      this.props.onOperationSelect(row);
+    }
+
     render() {
+      const selectRowProp = {
+        mode: 'checkbox',
+        clickToSelect: true,
+        hideSelectColumn: true,
+        onSelect: this.onRowSelect.bind(this)
+      };
+
         console.log('render: OperationsSection');
         return (
             <div className="panel panel-warning">
@@ -30,6 +41,7 @@ class OperationList extends React.Component {
                         <div className="col-md-12">
                             <BootstrapTable
                               data={this.props.operations}
+                              selectRow={ selectRowProp }
                               striped
                               hover
                               pagination

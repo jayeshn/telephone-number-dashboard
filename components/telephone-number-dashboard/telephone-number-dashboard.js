@@ -30,10 +30,14 @@ class TelephoneNumberDashboard extends React.Component {
 		},function(fileListResponse) {
 			//alert('error');
             self.setState({"files":[
-                                {"name":"ASR_141217_001", "numbers":[{"number":"856-001-0001"}, {"number":"856-001-0002"}]}, {"name":"ASR_141217_002", "numbers":[{"number":"856-002-0001"}, {"number":"856-002-0002"}]}, {"name":"ASR_141217_003", "numbers":[{"number":"856-003-0001"}, {"number":"856-003-0002"}]}
+                                {"name":"ASR_141217_001", "numbers":[{"number":"856-001-0001"}, {"number":"856-001-0002"}]},
+                                {"name":"ASR_141217_002", "numbers":[{"number":"856-002-0001"}, {"number":"856-002-0002"}]},
+                                {"name":"ASR_141217_003", "numbers":[{"number":"856-003-0001"}, {"number":"856-003-0002"}]}
                             ],
                             "operations":[
-                                {"name":"ASR_141217_001", "numbers":[{"number":"856-001-0001"}, {"number":"856-001-0002"}]}, {"name":"ASR_141217_002", "numbers":[{"number":"856-002-0001"}, {"number":"856-002-0002"}]}, {"name":"ASR_141217_003", "numbers":[{"number":"856-003-0001"}, {"number":"856-003-0002"}]}
+                                {"name":"tc-001", "numbers":[{"number":"856-001-0001"}, {"number":"856-001-0002"}], "details":{"tc-num":"856-001-0000"}},
+                                {"name":"911-001", "numbers":[{"number":"856-003-0001"}, {"number":"856-003-0002"}], "details":{"address":"2 Logan Square", "city":"Philadelphia", "state":"PA", "zipcode":"19130"}},
+                                {"name":"cf-001", "numbers":[{"number":"856-002-0001"}, {"number":"856-002-0002"}], "details":{"cf-num":"856-002-0000"}}, 
                             ]
                           });
 		});
