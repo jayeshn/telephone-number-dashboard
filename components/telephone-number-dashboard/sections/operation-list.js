@@ -2,20 +2,16 @@ import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 class OperationList extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentWillMount() {
-        console.log('componentWillMount: OperationsSection');
+//        console.log('componentWillMount: OperationsSection');
     }
 
     componentWillUpdate() {
-        console.log('componentWillUpdate: OperationsSection');
+//        console.log('componentWillUpdate: OperationsSection');
     }
 
     componentWillReceiveProps() {
-        console.log('componentWillReceiveProps: OperationsSection');
+//        console.log('componentWillReceiveProps: OperationsSection');
     }
 
     onRowSelect(row, isSelected, e) {
@@ -30,15 +26,8 @@ class OperationList extends React.Component {
         onSelect: this.onRowSelect.bind(this)
       };
 
-        console.log('render: OperationsSection');
+//        console.log('render: OperationsSection');
         return (
-            <div className="panel panel-warning">
-                <div className="panel-heading">
-                    <div className="panel-title">Operation List</div>
-                </div>
-                <div className="panel-body">
-                    <div className="row">
-                        <div className="col-md-12">
                             <BootstrapTable
                               data={this.props.operations}
                               selectRow={ selectRowProp }
@@ -49,10 +38,6 @@ class OperationList extends React.Component {
                               options={ { noDataText: 'No operations defined yet.' } }>
                                 <TableHeaderColumn dataField="name" isKey dataSort>Name</TableHeaderColumn>
                             </BootstrapTable>
-                        </div>
-                    </div>
-                </div>
-            </div>
         );
     }
 }

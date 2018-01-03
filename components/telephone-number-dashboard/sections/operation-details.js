@@ -1,25 +1,20 @@
 import React from 'react';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Tabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import 'rc-tabs/assets/index.css';
 
 class OperationDetails extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentWillMount() {
-        console.log('componentWillMount: OperationsSection');
+//        console.log('componentWillMount: OperationsSection');
     }
 
     componentWillUpdate() {
-        console.log('componentWillUpdate: OperationsSection');
+//        console.log('componentWillUpdate: OperationsSection');
     }
 
     componentWillReceiveProps() {
-        console.log('componentWillReceiveProps: OperationsSection');
+//        console.log('componentWillReceiveProps: OperationsSection');
     }
 
     getOperationDetails() {
@@ -45,13 +40,8 @@ class OperationDetails extends React.Component {
     }
 
     render() {
-        console.log('render: OperationsSection');
+//        console.log('render: OperationsSection');
         return (
-            <div className="panel panel-warning">
-                <div className="panel-heading">
-                    <div className="panel-title">Operation Details</div>
-                </div>
-                <div className="panel-body">
                 <Tabs
                   defaultActiveKey="2"
                   onChange={this.callback}
@@ -69,9 +59,6 @@ class OperationDetails extends React.Component {
                     </div>
                   </TabPane>
                 </Tabs>
-
-                </div>
-            </div>
         );
     }
 }

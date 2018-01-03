@@ -5,20 +5,22 @@ class NumbersSection extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state={numbers:[]}
-        this.num = []
+        this.state={numbers:[]};
+        this.num = [];
+        this.selectedNumbers = [];
     }
 
     componentWillMount() {
-        console.log('componentWillMount: NumbersSection');
+//        console.log('componentWillMount: NumbersSection');
+            this.updateState(this.props);
     }
 
     componentWillUpdate(nextProps, nextState) {
-        console.log('componentWillUpdate: NumbersSection');
+//        console.log('componentWillUpdate: NumbersSection');
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('componentWillReceiveProps: NumbersSection');
+//        console.log('componentWillReceiveProps: NumbersSection');
         this.updateState(nextProps);
     }
 
@@ -34,12 +36,33 @@ class NumbersSection extends React.Component {
         this.setState({"numbers":this.num});
     }
 
-    pushNumbers(item, index) {
-
+    handleClick() {
+        this.props.onHide(this.selectedNumbers);
     }
+    
+    onRowSelect(row, isSelected, e) {
+        if (isSelected) {
+            this.selectedNumbers.push(row.number);
+        } else {
+            const index = this.selectedNumbers.indexOf(row.number);
 
+            if (index !== -1) {
+                this.selectedNumbers.splice(index, 1);
+            }
+        }
+        console.log(this.selectedNumbers);
+    }
+    
     render() {
-        console.log('render: NumbersSection');
+//        console.log('render: NumbersSection');
+        const selectRowProp = this.props.selectAllowed ? {
+            mode: 'checkbox',
+            bgColor: 'aquamarine',
+            clickToSelect: true,
+            hideSelectColumn: true,
+            onSelect: this.onRowSelect.bind(this)
+          } : {};
+
         return (
             <div className="row">
                 <div className="col-md-12">
@@ -48,7 +71,7 @@ class NumbersSection extends React.Component {
                             <div className="panel-title">Numbers</div>
                         </div>
                         <div className="panel-body">
-                            <BootstrapTable
+                            <BootstrapTable selectRow={ selectRowProp }
                               data={this.state.numbers}
                               striped
                               hover
@@ -57,6 +80,7 @@ class NumbersSection extends React.Component {
                               options={ { noDataText: 'No numbers available yet.' } }>
                                 <TableHeaderColumn dataField="number" isKey dataSort>Number</TableHeaderColumn>
                             </BootstrapTable>
+                            <button onClick={this.handleClick.bind(this)}>Close</button>
                         </div>
                     </div>
                 </div>
