@@ -42,9 +42,9 @@ class NumbersSection extends React.Component {
     
     onRowSelect(row, isSelected, e) {
         if (isSelected) {
-            this.selectedNumbers.push(row.number);
+            this.selectedNumbers.push(row);
         } else {
-            const index = this.selectedNumbers.indexOf(row.number);
+            const index = this.selectedNumbers.indexOf(row);
 
             if (index !== -1) {
                 this.selectedNumbers.splice(index, 1);
