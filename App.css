@@ -24,3 +24,46 @@
     text-align: center;
     background-color: cornflowerblue;
 }
+
+.container {
+    overflow:hidden;
+}
+
+#col1 {
+    float: left;
+    width: 20%;
+    padding-right: 8px;
+}
+
+#col2 {
+    float: right;
+    width: 80%;
+    padding-left: 8px
+}
+
+#col1, #col2 {
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.custom-scroll::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+
+.custom-scroll::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #337ab7;
+}

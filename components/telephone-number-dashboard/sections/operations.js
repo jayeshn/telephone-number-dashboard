@@ -34,7 +34,7 @@ class OperationsSection extends React.Component {
     render() {
 //        console.log('render: OperationsSection');
         return (
-            <div className="well well-sm">
+            <div>
                 <div className="well well-sm">
                     <OperationList onOperationSelect={this.handleOperationSelect.bind(this)} operations={this.props.operations}/>
                 </div>

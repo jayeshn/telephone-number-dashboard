@@ -60,8 +60,8 @@ class OperationsToolbar extends React.Component {
 
     getCoordinates(id) {
         let buttonEl = document.getElementById(id);
-        let x = buttonEl.offsetLeft + buttonEl.offsetWidth;
-        let y = buttonEl.offsetTop + buttonEl.offsetHeight / 2;
+        let x = buttonEl.offsetLeft;
+        let y = buttonEl.offsetTop + buttonEl.offsetHeight;
         
         return {"x":x, "y":y};
     }
@@ -69,7 +69,7 @@ class OperationsToolbar extends React.Component {
     render() {
 //        console.log('render: OperationsToolbar');
         const addContextMenu = this.state.showAddMenu ? (
-            <Modeless root="add-root" x={this.state.x} y={this.state.y}>
+            <Modeless root="menu-parent" x={this.state.x} y={this.state.y}>
                 <div className="menu">
                     <div className="menu-item" onClick={this.handleAdd911Details.bind(this)}>
                         911 Address Details
@@ -79,7 +79,7 @@ class OperationsToolbar extends React.Component {
             ) : null;
 
         const setupContextMenu = this.state.showSetupMenu ? (
-            <Modeless root="setup-root" x={this.state.x} y={this.state.y}>
+            <Modeless root="menu-parent" x={this.state.x} y={this.state.y}>
                 <div className="menu">
                     <div className="menu-item" onClick={this.handleSetupTrunk.bind(this)}>
                         Trunk Call
@@ -92,11 +92,9 @@ class OperationsToolbar extends React.Component {
             ) : null;
         
         return (
-                <div>
-                    <div id="add-root"><button id="add-button" className="btn btn-primary" onClick={this.handleAddClick.bind(this)}>Add <span className="glyphicon glyphicon-menu-right"></span></button>{addContextMenu}</div>
-                    <div id="setup-root"><button id="setup-button" className="btn btn-primary" onClick={this.handleSetupClick.bind(this)}>Setup <span className="glyphicon glyphicon-menu-right"></span></button>{setupContextMenu}</div>
-                    
-                    
+                <div id="menu-parent">
+                    <span id="add-root"><button id="add-button" className="btn btn-primary" onClick={this.handleAddClick.bind(this)}>Add <span className="glyphicon glyphicon-menu-down"></span></button>{addContextMenu}</span>
+                    <span id="setup-root"><button id="setup-button" className="btn btn-primary" onClick={this.handleSetupClick.bind(this)}>Setup <span className="glyphicon glyphicon-menu-down"></span></button>{setupContextMenu}</span>
                 </div>
         );
     }
